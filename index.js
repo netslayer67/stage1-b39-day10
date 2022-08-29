@@ -48,6 +48,7 @@ data_base.connect(function (err, client, done) {
             let data = result.rows
             let data_project = data.map(function (item) {
                 return {
+                    //(item) menampung data dari dataProject
                     ...item,
                     date: getFullTime(item.durasi),
                     durasi: getDistanceTime(item.start_date, item.end_date),
