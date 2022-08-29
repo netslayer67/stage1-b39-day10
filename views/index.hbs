@@ -3,6 +3,7 @@
 
 <head>
     <title>Home Page</title>
+    <link rel="icon" type="image/x-icon" href="https://dumbways.id/assets/images/brandwhite.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -38,7 +39,7 @@
                 </ul>
 
                 {{#if this.isLogin}}
-                <a class="nav-link mx-2 btn text-dark" aria-current="page" href="#">Hallo, {{user.name}}</a>
+                <a class="nav-link mx-2 btn btn-white text-dark" aria-current="page" href="#">Hallo, {{user.name}}</a>
                 <a class="nav-link mx-2 btn mx-4" aria-current="page" href="/logout">Logout</a>
                 {{else}}
                 <a class="nav-link mx-2 btn" aria-current="page" href="/register">Register</a>
