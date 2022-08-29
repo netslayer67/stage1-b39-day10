@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!--Navigation bar-->
+    <nav class="navbar navbar-expand-lg" style="background-color: whitesmoke">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo.png" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark mx-2 active" aria-current="page" href="/">Home</a>
+                    </li>
+                    {{#if this.isLogin}}
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" aria-current="page" href="/add-project">Add Project</a>
+                    </li>
+                    {{/if}}
+                </ul>
+
+                {{#if this.isLogin}}
+                <a class="nav-link mx-2 btn text-dark" aria-current="page" href="#">Hallo, {{user.name}}</a>
+                <a class="nav-link mx-2 btn mx-4" aria-current="page" href="/logout">Logout</a>
+                {{else}}
+                <a class="nav-link mx-2 btn" aria-current="page" href="/register">Register</a>
+                <a class="nav-link mx-2 btn mx-4" aria-current="page" href="/login">Login</a>
+                {{/if}}
+
+
+
+                <a href="/contact" class="btn bg-dark text-white px-3 ">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+    <!--End Navigation Bar-->
+
+    {{#if messages.success}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>YEEY...</strong> {{messages.success}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+
+
+    <div class="d-flex justify-content-center bg-home">
+
+        <div class="card mb-3 p-4 my-5 shadow-lg p-3 mb-5 bg-body rounded" style="width: 55%;">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">HI, Greeting Everybody</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam similique
+                            quam eveniet maiores numquam sit enim maxime officiis. Laboriosam vel enim sapiente quod
+                            commodi, autem reprehenderit minus esse ipsam id?</p>
+                        <div class="my-5">
+
+                            <a href="https://wa.me/6281281837254" type="button"
+                                class="btn bg-dark text-white btn-sm rounded-4 px-4">Contact</a>
+                            <a href="https://drive.google.com/file/d/16iY-aBADJTzXAa_M-qTEcW9P_bOcf9Fk/view?usp=sharing"
+                                type="button" class="btn btn-sm">Here My CV!<i class="fa-solid fa-download"></i></a>
+
+                        </div>
+
+                        <div class="mt-3">
+                            <a href="https://www.linkedin.com/in/jilliyan-jml-75543a242/"><i style="padding: 7px;"
+                                    class="fa-brands fa-linkedin social-media text-dark"></i></a>
+                            <a href="https://www.instagram.com/sayedjilliyan/"><i style="padding: 7px;"
+                                    class="fa-brands fa-instagram social-media fa-2x text-dark"></i></a>
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+                <div class="col-md-4 p-1 shadow rounded-3">
+                    <img src="/assets/images/jil.jpeg" class="img-fluid rounded-start" alt="ini foto">
+                    <div class="" style="text-align: center;">
+                        <p class="card-text fs-5 fw-bold" style="font-family: sans-serif;"><small>Sayed Jilliyan</small>
+                        </p>
+                        <p class="card-text fs-6" style="margin-top: -10px;"><small class="text-muted">Fullstack
+                                Developer</small></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <hr class="line" style="background-color: rgb(219, 213, 213);" />
+    <div class="">
+        <h1 class="judul-project">MY PROJECT</h1>
+    </div>
+
+
+    {{!-- Halaman Project --}}
+
+    <div class="d-flex bg-card flex-wrap">
+
+        {{#each dataProject}}
+        <div class="card shadow-lg mx-4 rounded mb-3 p-3 w-25 bg-card">
+            <img src="uploads/{{this.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="/project-detail/{{this.id}}" style="text-decoration: none; color:black"
+                        target="_blank">{{this.name}}</a>
+                </h5>
+                <p class="card-text"><small class="text-muted">durasi: {{this.durasi}}</small></p>
+                <p class="card-text"><small class="text-muted">{{this.author}}</small></p>
+                <p class="card-text">{{this.description}}</p>
+
+                {{#each technologies}}
+                {{!-- <div class="fs-1"> --}}
+                    <i class="fa-brands fa-{{this}} fs-1 me-3 mb-3"></i>
+                    {{!-- <i class="fa-brands fa-{{this}}-js me-5"></i> --}}
+                    {{!-- <i class="fa-brands fa-java me-5"></i> --}}
+                    {{!-- <i class="fa-brands fa-python me-5"></i> --}}
+                    {{!--
+                </div> --}}
+                {{/each}}
+
+                {{#if this.isLogin}}
+                <div class="d-flex mt-4">
+                    <a href="/edit-project/{{this.id}}" type="button"
+                        class="btn bg-dark text-white btn-sm me-3 edit">Edit</a>
+                    {{!-- <a href="/delete-project/{{@index}}" type="button"
+                        class="btn bg-dark text-white btn-sm ms-3 edit">Delete</a> --}}
+
+                    <!-- Button trigger modal -->
+                    <a href="/delete-project/{{this.id}}" type="button" class="btn bg-dark text-white btn-sm ms-3 edit">
+                        Delete
+                    </a>
+
+                    <!-- Modal -->
+                    {{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete this project?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <a type="button" class="btn bg-dark text-white">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                </div>
+                {{/if}}
+
+            </div>
+        </div>
+        {{/each}}
+        {{!-- <div class="card shadow-lg rounded mb-3 p-3">
+
+            <div>
+
+                <img src="/assets/images/future-bus-computer-desktop-background-wallpaper-preview.jpg"
+                    class="card-img-top" style="width: 100%;" alt="...">
+
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text"><small class="text-muted">durasi: 3 bulan</small></p>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore provident
+                    exercitationem obcaecati, voluptate facere quia earum officia doloremque nobis aliquid unde velit,
+                    quisquam quibusdam quaerat possimus delectus. Corporis, eius repellat.</p>
+
+                <div class="d-flex fs-1">
+                    <i class="fa-brands fa-react me-5"></i>
+                    <i class="fa-brands fa-node-js me-5"></i>
+                    <i class="fa-brands fa-java me-5"></i>
+                    <i class="fa-brands fa-python me-5"></i>
+                </div>
+
+                <div class="d-flex mt-4">
+
+                    <button type="button" class="btn bg-dark text-white btn-sm me-3 edit">Edit</button>
+                    <button type="button" class="btn bg-dark text-white btn-sm ms-3 edit">Delete</button>
+
+                </div>
+
+            </div>
+        </div> --}}
+
+
+
+        {{!-- <div class="card mx-5 shadow-lg rounded mb-3 p-3">
+            <img src="/assets/images/download.jfif" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+
+                    <a href="/blog-detail/1" style="text-decoration: none;" target="_blank">Pasar Coding</a>
+
+
+                </h5>
+                <p class="card-text"><small class="text-muted">durasi: 3 bulan</small></p>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis et
+                    consequuntur magni doloribus ullam maxime. Molestias aliquid temporibus possimus cum deleniti optio,
+                    assumenda tempora! Quo veritatis ad iste sequi a.</p>
+
+                <div class="d-flex fs-1">
+                    <i class="fa-brands fa-react me-5"></i>
+                    <i class="fa-brands fa-node-js me-5"></i>
+                    <i class="fa-brands fa-java me-5"></i>
+                    <i class="fa-brands fa-python me-5"></i>
+                </div>
+
+                <div class="d-flex mt-4">
+                    <button type="button" class="btn bg-dark text-white btn-sm me-3  edit">Edit</button>
+                    <button type="button" class="btn bg-dark text-white btn-sm ms-3  edit">Delete</button>
+
+                </div>
+
+            </div>
+        </div> --}}
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

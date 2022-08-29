@@ -1,0 +1,123 @@
+nav {
+    background-color: rgb(241, 238, 238);
+    display: flex;
+    height: 10vh;
+  }
+
+.nav-left {
+    display: flex;
+    padding-left: 100px;
+    align-items: center;
+    width: 50%;
+  }
+
+.nav-left li {
+    display: inline;
+  }
+
+.nav-left ul {
+    display: flex;
+    align-items: center;
+  }
+
+.nav-left ul li a {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  color: black;
+  text-decoration: none;
+  padding: 15px   ;
+  }
+
+.nav-right {
+    font-family: arial;
+    display: flex;
+    flex: 50%;
+    justify-content: end;
+    align-items: center;
+    padding: 30px;
+  }
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 25px;
+    border-radius: 5px;
+    background-color: orangered;
+  }
+
+body {
+    margin: 0px;
+    background-color: rgb(203, 212, 203);
+  }
+
+  .judul-thread {
+    text-align: center;
+    margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+ .head-thread {
+    display: flex;
+    padding: 30px;
+  }
+
+.foto-programmer {
+    flex: 60%;
+    width: 20%;
+    margin-left: 50px;
+  }
+
+.durasi-dan-tanggal {
+    flex: 50%;
+    margin-left: 80px;
+  }
+
+  .durasi {
+    color: rgb(94, 94, 94);
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .foto-durasi {
+    margin-right: 10px;
+  }
+
+  .blog-technologies {
+    display: flex;
+  }
+
+  .logo-kanan {
+    flex: 50%;
+  }
+
+  .logo-kiri {
+    flex: 50%;
+  }
+
+  .logo-js {
+    color: rgb(95, 95, 95);
+  }
+
+  .foto-js {
+    margin-right: 10px;
+  }
+
+  .isi-thread {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 40px;
+  }
+
+  .card-thread {
+    border: 1px solid grey;
+    margin: 40px 80px 80px 80px;
+    background-color: whitesmoke;
+    box-shadow: 0px 4px 8px 0px;
+  }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+  }
